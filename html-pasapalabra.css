@@ -1,0 +1,420 @@
+:root {
+	--page-bg: rgb(2, 72, 112);
+	--page-bg-start: rgba(2, 72, 112, 1) 0%;
+	--page-bg-middle: rgba(91, 29, 253, 1) 50%;
+	--page-bg-end: rgba(252, 69, 176, 1) 100%;
+	--page-bg-angle: 180deg;
+	--bg-start: rgba(179, 205, 255, 0.22);
+	--bg-end: rgba(244, 245, 245, 0.651);
+	--bg-angle: 90deg;
+	--bg-welcome: rgb(244, 244, 245);
+	--bg-red: rgb(215, 67, 90);
+	--title-shadow: #cd86d6;
+	--white: #ffffff;
+	--popup-bg: rgba(17, 17, 20, 0.918);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Nunito Sans', sans-serif;
+	color: rgb(88, 91, 94);
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+body {
+	text-align: center;
+	background: var(--page-bg);
+	background: linear-gradient(
+		180deg,
+		var(--page-bg-start),
+		var(--page-bg-middle),
+		var(--page-bg-end)
+	);
+}
+input:focus {
+	outline: none;
+}
+
+/* General classes & shared properties */
+
+.hidden {
+	visibility: hidden;
+}
+.deleted {
+	display: none;
+}
+body,
+.centervh,
+.welcome,
+.scorePopup,
+.popup {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+body,
+.welcome,
+.scorePopup,
+.popup,
+.welcome-lastPlayers,
+.welcome-newPlayer-data,
+.questions {
+	align-items: center;
+}
+
+.welcome p,
+.welcome h3,
+.welcome li,
+.title,
+input[type='button'] {
+	color: var(--white);
+}
+
+input[type='button'] {
+	cursor: pointer;
+}
+
+.title {
+	margin-top: 20px;
+	font-family: 'Merriweather Sans', sans-serif;
+	font-size: 48px;
+	letter-spacing: 0.1em;
+	text-shadow: 3px 5px 2px var(--title-shadow);
+}
+
+/* ------ Welcome page ------ */
+.welcome,
+.scorePopup {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000000;
+	background: var(--page-bg);
+}
+
+.scorePopup {
+	background: var(--popup-bg);
+}
+
+.scorePopup .popup {
+	width: 400px;
+	height: 200px;
+	background: var(--bg-welcome);
+	border-radius: 5px;
+	box-shadow: 5px 5px 20px #575758, -5px -5px 20px #838181;
+}
+
+.welcome h2 {
+	font-size: 36px;
+	margin-bottom: 12px;
+}
+
+.welcome input {
+	width: 280px;
+	height: 40px;
+	margin-top: 20px;
+	text-align: center;
+	border-radius: 10px;
+	border: none;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.welcome input[type='button'] {
+	background: rgb(181, 238, 174);
+	background: radial-gradient(
+		circle,
+		rgba(181, 238, 174, 1) 0%,
+		rgba(148, 233, 213, 1) 100%
+	);
+}
+
+.pasapalabra .active {
+	background: rgb(174, 209, 238);
+	background: radial-gradient(
+		circle,
+		rgb(174, 209, 238) 0%,
+		rgb(98, 165, 219) 100%
+	);
+}
+
+.pasapalabra .correct {
+	background: rgb(181, 238, 174);
+	background: radial-gradient(
+		circle,
+		rgba(181, 238, 174, 1) 0%,
+		rgba(148, 233, 213, 1) 100%
+	);
+}
+
+.pasapalabra .wrong {
+	background: rgb(238, 174, 174);
+	background: radial-gradient(
+		circle,
+		rgba(238, 174, 174, 0.459) 0%,
+		rgba(223, 83, 73, 0.432) 100%
+	);
+}
+
+.welcome input[type='text']:focus {
+	font-size: 16px;
+	transition: font-size 0.6s;
+}
+
+.welcome-lastPlayers {
+	margin-top: 50px;
+	padding-top: 20px;
+	border-top: 1px solid var(--bg-start);
+}
+
+.welcome-lastPlayers li {
+	margin-top: 10px;
+	list-style: none;
+}
+
+.pasapalabra,
+.score,
+.questions,
+.controls {
+	width: 500px;
+	margin-top: 10px;
+}
+
+header {
+	height: 220px;
+}
+
+.pasapalabra {
+	height: 640px;
+	padding-bottom: 30px;
+	background: linear-gradient(var(--bg-angle), var(--bg-start), var(--bg-end));
+	box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+		-8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+	border-radius: 50px;
+}
+
+.score {
+	height: 80px;
+	margin-top: 30px;
+	padding: 20px;
+	box-sizing: border-box;
+	border-top-left-radius: 50px;
+	border-top-right-radius: 50px;
+	background: linear-gradient(var(--bg-angle), var(--bg-start), var(--bg-end));
+	box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25),
+		-8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+	display: flex;
+	justify-content: space-around;
+}
+
+.instructions {
+	margin-top: 20px;
+	height: 100px;
+}
+
+.circle {
+	position: relative;
+	height: 500px;
+}
+
+.pasapalabra li {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	box-sizing: border-box;
+	position: absolute;
+	top: 232px;
+	left: 232px;
+	list-style: none;
+	font-size: 22px;
+	color: rgb(88, 91, 94);
+	text-transform: uppercase;
+	padding-top: 6px;
+	padding-left: 2px;
+	background: rgba(255, 253, 253, 0.774);
+	box-shadow: 2px 2px 6px #5f20c4, -2px -2px 6px #d2b3fa;
+}
+
+.questions-frame {
+	position: relative;
+}
+
+.questions {
+	position: absolute;
+	top: 72px;
+	left: 83px;
+	height: 340px;
+	width: 340px;
+	padding: 20px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	border-radius: 50%;
+	font-size: 20px;
+}
+
+.controls {
+	height: 140px;
+}
+
+.btn-text {
+	border-radius: 10px;
+	height: 40px;
+	width: 300px;
+	text-align: center;
+	outline: none;
+	border: none;
+}
+
+.btn-next,
+.btn-asnwer,
+.btn-exit {
+	border: 0;
+	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: 400;
+}
+
+.btn-asnwer,
+.btn-next {
+	border-radius: 10px;
+	height: 60px;
+	width: 140px;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.btn-next {
+	background: rgb(195, 34, 132);
+	background: linear-gradient(
+		300deg,
+		rgba(195, 34, 132, 1) 0%,
+		rgba(0, 0, 0, 0.822) 100%
+	);
+	margin-right: 0;
+}
+
+.btn-asnwer,
+.welcome input[type='button'] {
+	font-weight: 400;
+	background: rgb(34, 193, 195);
+	background: linear-gradient(
+		146deg,
+		rgba(34, 193, 195, 1) 24%,
+		rgba(0, 0, 0, 0.822) 100%
+	);
+}
+
+.btn-exit {
+	height: 20px;
+	width: 300px;
+	border-radius: 5px;
+	margin-top: 18px;
+	background: rgba(160, 6, 6, 0.514);
+}
+
+/* ------ Shadows ------ */
+.inset-shadow {
+	background: #e4edfd;
+	box-shadow: inset 20px 20px 60px #a0a3a8, inset -20px -20px 60px #ffffff;
+}
+
+.inset-shadow-light {
+	box-shadow: inset 3px 3px 8px #d0d0d0, inset -3px -3px 8px #ffffff;
+}
+
+.over-shadow {
+	box-shadow: 20px 20px 60px #d0d0d0, -20px -20px 60px #ffffff;
+}
+
+.over-shadow-light {
+	box-shadow: 3px 3px 8px #d0d0d0, -3px -3px 8px #ffffff;
+}
+
+/* circle classes */
+.a {
+	transform: translateY(-200px);
+}
+.b {
+	transform: rotate(14deg) translateY(-200px) rotate(-14deg);
+}
+.c {
+	transform: rotate(28deg) translateY(-200px) rotate(-28deg);
+}
+.d {
+	transform: rotate(42deg) translateY(-200px) rotate(-42deg);
+}
+.e {
+	transform: rotate(56deg) translateY(-200px) rotate(-56deg);
+}
+.f {
+	transform: rotate(70deg) translateY(-200px) rotate(-70deg);
+}
+.g {
+	transform: rotate(84deg) translateY(-200px) rotate(-84deg);
+}
+.h {
+	transform: rotate(98deg) translateY(-200px) rotate(-98deg);
+}
+.i {
+	transform: rotate(112deg) translateY(-200px) rotate(-112deg);
+}
+.j {
+	transform: rotate(126deg) translateY(-200px) rotate(-126deg);
+}
+.k {
+	transform: rotate(140deg) translateY(-200px) rotate(-140deg);
+}
+.l {
+	transform: rotate(154deg) translateY(-200px) rotate(-154deg);
+}
+.m {
+	transform: rotate(168deg) translateY(-200px) rotate(-168deg);
+}
+.n {
+	transform: rotate(182deg) translateY(-200px) rotate(-182deg);
+}
+.o {
+	transform: rotate(196deg) translateY(-200px) rotate(-196deg);
+}
+.p {
+	transform: rotate(210deg) translateY(-200px) rotate(-210deg);
+}
+.q {
+	transform: rotate(224deg) translateY(-200px) rotate(-224deg);
+}
+.r {
+	transform: rotate(238deg) translateY(-200px) rotate(-238deg);
+}
+.s {
+	transform: rotate(252deg) translateY(-200px) rotate(-252deg);
+}
+.t {
+	transform: rotate(266deg) translateY(-200px) rotate(-266deg);
+}
+.u {
+	transform: rotate(280deg) translateY(-200px) rotate(-280deg);
+}
+.v {
+	transform: rotate(293deg) translateY(-200px) rotate(-293deg);
+}
+.w {
+	transform: rotate(306deg) translateY(-200px) rotate(-306deg);
+}
+.x {
+	transform: rotate(318deg) translateY(-200px) rotate(-318deg);
+}
+.y {
+	transform: rotate(332deg) translateY(-200px) rotate(-332deg);
+}
+.z {
+	transform: rotate(346deg) translateY(-200px) rotate(-346deg);
+}

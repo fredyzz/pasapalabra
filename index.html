@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./html-pasapalabra.css" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap"
+			rel="stylesheet"
+		/>
+
+		<title>pasapalabra</title>
+	</head>
+	<body>
+		<header class="centervh">
+			<h1 class="title">pasapalabra</h1>
+		</header>
+		<section id="welcome" class="welcome">
+			<div class="welcome-newPlayer-data centervh">
+				<h2 class="title">Bienvenido a Pasapalabra</h2>
+				<p>Ingrese su nombre para comenzar a jugar</p>
+				<input
+					type="text"
+					name="inputPlayerName"
+					id="inputPlayerName"
+					placeholder="nombre"
+					class="inset-shadow-light"
+					onkeyup="handleNameChange()"
+					onfocus="resetInputPlayerName()"
+					autocomplete="off"
+				/>
+				<input
+					type="button"
+					name="inputStartGame"
+					id="inputStartGame"
+					value="comenzar"
+					class="over-shadow-light hidden"
+					onclick="startGame()"
+				/>
+			</div>
+			<hr />
+			<div class="welcome-lastPlayers centervh">
+				<h3>Ultimos jugadores</h3>
+				<ul class="lastPlayersList"></ul>
+			</div>
+		</section>
+		<section id="pasapalabra" class="pasapalabra centervh">
+			<div class="questions-frame">
+				<div id="questions" class="questions inset-shadow"></div>
+			</div>
+			<div class="circle centervh">
+				<ul>
+					<li class="a">a</li>
+					<li class="b">b</li>
+					<li class="c">c</li>
+					<li class="d">d</li>
+					<li class="e">e</li>
+					<li class="f">f</li>
+					<li class="g">g</li>
+					<li class="h">h</li>
+					<li class="i">i</li>
+					<li class="j">j</li>
+					<li class="k">k</li>
+					<li class="l">l</li>
+					<li class="m">m</li>
+					<li class="n">n</li>
+					<li class="o">o</li>
+					<li class="p">p</li>
+					<li class="q">q</li>
+					<li class="r">r</li>
+					<li class="s">s</li>
+					<li class="t">t</li>
+					<li class="u">u</li>
+					<li class="v">v</li>
+					<li class="w">w</li>
+					<li class="x">x</li>
+					<li class="y">y</li>
+					<li class="z">z</li>
+				</ul>
+			</div>
+
+			<div class="controls">
+				<div class="controls-text">
+					<input type="text" class="btn-text inset-shadow-light" />
+				</div>
+				<div class="controls-game">
+					<input
+						type="button"
+						class="btn-asnwer over-shadow-light"
+						value="Responder"
+						placeholder="Escribe aquí la respuesta"
+						onclick="checkAnswer()"
+					/>
+					<input
+						type="button"
+						class="btn-next over-shadow-light"
+						value="Pasapalabra"
+						onclick="pasapalabra()"
+					/>
+				</div>
+				<div class="controls-exit">
+					<input
+						type="button"
+						class="btn-exit over-shadow-light"
+						value="Finalizar juego"
+						onclick="showScore()"
+					/>
+				</div>
+			</div>
+		</section>
+		<section class="score">
+			<div>
+				<h3>Respuestas correctas</h3>
+				<p class="score-correct">0</p>
+			</div>
+			<div>
+				<h3>Tiempo restante</h3>
+				<p><span class="score-time">180</span> segundos</p>
+			</div>
+		</section>
+		<!-- ----- PopUp ----- -->
+		<section class="scorePopup hidden">
+			<div class="popup">
+				<h2>Resultados</h2>
+				<p>
+					Respuestas correctas: <span class="scorePop-correctAnswers"></span>
+				</p>
+				<p>Tiempo restante: <span class="scorePop-timeLeft"></span></p>
+				<input
+					type="button"
+					value="salir"
+					class="btn-exit active"
+					onclick="endGame()"
+				/>
+			</div>
+		</section>
+	</body>
+
+	<script src="html-pasapalabra.js"></script>
+</html>
