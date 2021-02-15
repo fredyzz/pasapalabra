@@ -2,7 +2,7 @@
 
 ![app screenshot home](./.preview-static-images/home.png)
 
-[live demo](https://fredyzz.github.io/pasapalabra-html/)
+[live demo](https://fredyzz.github.io/pasapalabra/)
 
 ## Build using:
 
