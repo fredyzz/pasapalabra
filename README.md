@@ -1,4 +1,4 @@
-# Pasapalabra gram build with HTML, CSS & Javascript
+# Pasapalabra game built with HTML, CSS & Javascript
 
 ![app screenshot home](./.preview-static-images/home.png)
 
