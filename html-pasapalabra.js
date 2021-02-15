@@ -285,7 +285,6 @@ const showNextQuestion = () => {
 }
 
 const pasapalabra = () => {
-	USER_ANSWER_INPUT.classList.remove('wrong')
 	turn++
 	actualQuestion++
 	cleanInputText()
@@ -454,6 +453,7 @@ const cleanAllQuestionStatus = () => {
 
 const cleanInputText = () => {
 	USER_ANSWER_INPUT.value = ''
+	USER_ANSWER_INPUT.classList.remove('wrong')
 }
 
 //  -------------- Starter function
