@@ -235,9 +235,18 @@ const SCORE_CORRECT_ANSWERS = document.querySelector('.score-correct')
 const SCORE_TIME_LEFT = document.querySelector('.score-time')
 const PLAYER_NAME_INPUT = document.querySelector('#inputPlayerName')
 const START_GAME_BUTTON = document.querySelector('#inputStartGame')
+const ANSWER_BUTTON = document.querySelector('#btn-asnwer')
 const DISPLAY = document.querySelector('#questions')
 const LAST_PLAYERS_LIST = document.querySelector('.lastPlayersList')
 const USER_ANSWER_INPUT = document.querySelector('.btn-text')
+
+// Keyboard events
+USER_ANSWER_INPUT.addEventListener('keyup', function (event) {
+	// Number 13 is the "Enter" key on the keyboard
+	if (event.keyCode === 13) {
+		checkAnswer()
+	}
+})
 
 // Players history
 const LAST_PLAYERS = []
