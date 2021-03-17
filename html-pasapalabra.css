@@ -156,11 +156,20 @@ input[type='button'] {
 }
 
 .pasapalabra .wrong {
-	background: rgb(238, 174, 174);
+	background: rgb(235, 95, 95);
 	background: radial-gradient(
 		circle,
-		rgba(238, 174, 174, 0.459) 0%,
+		rgba(231, 116, 116, 0.459) 0%,
 		rgba(223, 83, 73, 0.432) 100%
+	);
+}
+
+.pasapalabra .pasa {
+	background: rgb(233, 152, 60);
+	background: radial-gradient(
+		circle,
+		rgba(238, 216, 174, 0.459) 0%,
+		rgba(235, 154, 32, 0.432) 100%
 	);
 }
 

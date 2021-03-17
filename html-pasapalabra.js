@@ -294,6 +294,8 @@ const showNextQuestion = () => {
 }
 
 const pasapalabra = () => {
+	let letter = document.querySelector('.' + actualLetter)
+	letter.classList.add('pasa')
 	turn++
 	actualQuestion++
 	cleanInputText()
@@ -307,6 +309,7 @@ const checkAnswer = () => {
 		USER_ANSWER_INPUT.classList.add('wrong')
 		return
 	}
+	letter.classList.remove('pasa')
 	if (answer === questions[actualQuestion].answer) {
 		letter.classList.add('correct')
 		correctAnswers++
@@ -452,7 +455,7 @@ const cleanLastLetter = () => {
 const cleanAllLetters = () => {
 	LETTERS.forEach((letter) => {
 		let letterToClean = document.querySelector('.' + letter)
-		letterToClean.classList.remove('active', 'wrong', 'correct')
+		letterToClean.classList.remove('active', 'wrong', 'correct', 'pasa')
 	})
 }
 
